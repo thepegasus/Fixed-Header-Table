@@ -36,7 +36,7 @@
       cloneHeadToFoot: false, // clone head and use as footer
       autoResize:      false, // resize table if its parent wrapper changes size
       create:          null, // callback after plugin completes
-      rotateTitles:    false, //Rotate the header and footer text
+      rotateTitles:    false //Rotate the header and footer text
     };
 
     var settings = {};
@@ -50,7 +50,7 @@
         return this.each(function () {
           var $self = $(this); // reference the jQuery version of the current DOM element
           
-          //If title rotation is enabled, call _rotateTitles to set the HTML. 
+          //If title rotation is enabled, call _rotateTitles to add the necessary HTML 
           //This is to be done prior other DOM manipulations
           if(settings.rotateTitles == true){      	
         	  	helpers._rotateTitles($self);	         
