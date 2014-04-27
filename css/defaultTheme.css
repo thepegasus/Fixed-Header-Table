@@ -89,4 +89,18 @@
 	    z-index: 1;
 	    }
 
+/*Rotating the titles*/
+.fht-table-wrapper th.fthrotate {
+    height: 140px;
+    white-space: nowrap;
+}
+.fht-table-wrapper th.fthrotate > div {
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* IE 9 */
+    -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+    width: 30px;
+}
+.fht-table-wrapper th.fthrotate > div > span {
+    padding: 5px 10px;
+}
 /* @end */

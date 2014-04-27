@@ -35,7 +35,8 @@
       footer:          false, // show footer
       cloneHeadToFoot: false, // clone head and use as footer
       autoResize:      false, // resize table if its parent wrapper changes size
-      create:          null // callback after plugin completes
+      create:          null, // callback after plugin completes
+      rotateTitles:    false, //Rotate the header and footer text
     };
 
     var settings = {};
@@ -48,6 +49,12 @@
         // iterate through all the DOM elements we are attaching the plugin to
         return this.each(function () {
           var $self = $(this); // reference the jQuery version of the current DOM element
+          
+          //If title rotation is enabled, call _rotateTitles to set the HTML. 
+          //This is to be done prior other DOM manipulations
+          if(settings.rotateTitles == true){      	
+        	  	helpers._rotateTitles($self);	         
+          }
 
           if (helpers._isTable($self)) {
             methods.setup.apply(this, Array.prototype.slice.call(arguments, 1));
@@ -676,10 +683,18 @@
         }
 
         return scrollbarWidth;
+      },
+      
+      /*
+       * Set the necessary HTML for rotating the contents of th in thead and tfoot
+       * Courtesy: http://css-tricks.com/rotated-table-column-headers/
+       */
+      _rotateTitles: function($table) {
+    	  $table.find('thead tr th, tfoot tr th').each(function () {
+    		  $(this).wrapInner('<div><span></span></div>').addClass('fthrotate');
+    	  });
       }
-
-    };
-
+	};
 
     // if a method as the given argument exists
     if (methods[method]) {
