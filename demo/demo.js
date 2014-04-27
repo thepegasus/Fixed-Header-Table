@@ -10,4 +10,6 @@ $(document).ready(function() {
     $('#myTable03').fixedHeaderTable({ altClass: 'odd', footer: true, fixedColumns: 1 });
     
     $('#myTable04').fixedHeaderTable({ altClass: 'odd', footer: true, cloneHeadToFoot: true, fixedColumns: 3 });
+    
+    $('#myTable06').fixedHeaderTable({ altClass: 'odd', footer: true, fixedColumns: 1, rotateTitles:true });
 });
